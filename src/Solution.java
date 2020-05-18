@@ -9,22 +9,17 @@ class Solution {
         for (int x : A) {
             intSet.add(x);
         }
-
+        Set<Integer> intSetCopy =  new HashSet<>(intSet);
         for (int i = 0; i < A.length; i++) {
             for (int j = i; j < A.length; j++) {
-                if (intSet.contains(A[j])) {
-                    intSet.remove(A[j]);
-                    System.out.print(A[j] + " * ");
+                if (intSetCopy.contains(A[j])) {
+                    intSetCopy.remove(A[j]);
                 }
                 result1++;
-                System.out.println("- " + result1 + " -");
-                if (intSet.isEmpty()) {
+                if (intSetCopy.isEmpty()) {
                     if (result1 < result2) result2 = result1;
-                    System.out.print("result2 " + result2);
                     result1 = 0;
-                    for (int x : A) {
-                        intSet.add(x);
-                    }
+                    intSetCopy =  new HashSet<>(intSet);
                     break;
                 }
             }
@@ -40,11 +35,15 @@ class Solution {
         int[] A = {7, 3, 7, 3, 1, 3, 4, 1};
 
         System.out.println(solution(A));
-        System.out.println("b---");
+        System.out.print("b---");
         int[] B = {2, 1, 1, 3, 2, 1, 1, 3};
         System.out.println(solution(B));
-        System.out.println("c----");
+        System.out.print("c----");
         int[] C = {7, 5, 2, 7, 2, 7, 4, 7};
         System.out.println(solution(C));
+
+        int[] D = {7, 5,7,7,0};
+        System.out.println("D: " + solution(D));
+
     }
 }
