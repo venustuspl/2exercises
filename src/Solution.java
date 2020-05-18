@@ -21,7 +21,6 @@ class Solution {
                 }
                 if (result1 < result2) result2 = result1;
             }
-
 result1 = 0;
             // write your code in Java SE 8
             return result2;
